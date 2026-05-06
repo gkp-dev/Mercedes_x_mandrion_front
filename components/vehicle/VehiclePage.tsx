@@ -50,7 +50,7 @@ export default function VehiclePage({ car }: VehiclePageProps): React.ReactEleme
 
           <a
             href="/"
-            className="text-sm font-black uppercase tracking-[0.3em] text-black hover:text-[#E60000] transition-colors duration-200"
+            className="hidden md:block text-sm font-black uppercase tracking-[0.3em] text-black hover:text-[#E60000] transition-colors duration-200"
           >
             COMPOSITION MB
           </a>
@@ -130,11 +130,11 @@ export default function VehiclePage({ car }: VehiclePageProps): React.ReactEleme
       </section>
 
       {/* ── C) 3 COLONNES ── */}
-      <section className="border-b-2 border-black" style={{ minHeight: "500px" }}>
-        <div className="max-w-screen-2xl mx-auto grid" style={{ gridTemplateColumns: "1fr 2fr 1fr" }}>
+      <section className="border-b-2 border-black">
+        <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr]">
 
           {/* Col gauche */}
-          <div className="border-r-2 border-black p-8 flex flex-col gap-6">
+          <div className="order-2 md:order-1 border-b-2 md:border-b-0 md:border-r-2 border-black p-8 flex flex-col gap-6">
             <div>
               <div
                 className="h-[3px] w-12 mb-4"
@@ -165,7 +165,7 @@ export default function VehiclePage({ car }: VehiclePageProps): React.ReactEleme
           </div>
 
           {/* Col centre : image */}
-          <div className="border-r-2 border-black bg-white flex items-center justify-center p-8">
+          <div className="order-1 md:order-2 border-b-2 md:border-b-0 md:border-r-2 border-black bg-white flex items-center justify-center p-8">
             {car.image ? (
               <div className="relative w-full" style={{ maxHeight: "500px" }}>
                 <Image
@@ -192,7 +192,7 @@ export default function VehiclePage({ car }: VehiclePageProps): React.ReactEleme
           </div>
 
           {/* Col droite */}
-          <div className="p-8 flex flex-col gap-6">
+          <div className="order-3 p-8 flex flex-col gap-6">
             <div>
               <div
                 className="h-[3px] w-12 mb-4"
