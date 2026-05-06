@@ -1,0 +1,5 @@
+PLAN.md
+node_modules/
+.next/
+.env*.local
+.env.local
