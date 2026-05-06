@@ -111,10 +111,8 @@ function HeroSection(): React.JSX.Element {
     offset: ["start start", "end start"],
   });
 
-  // "Classique" (colourful) image fades IN as user scrolls
-  const classiqueOpacity = useTransform(scrollYProgress, [0.25, 0.65], [0, 1]);
-  // "Noir" (dark) image fades OUT as user scrolls — revealing the colourful one beneath
-  const noirOpacity = useTransform(scrollYProgress, [0.25, 0.65], [1, 0]);
+  // Classique fades IN over noir — noir reste toujours visible en base (pas de trou noir)
+  const classiqueOpacity = useTransform(scrollYProgress, [0.3, 0.7], [0, 1]);
   // Hero text fades and slides upward before the swap finishes
   const textOpacity = useTransform(scrollYProgress, [0, 0.2, 0.45], [1, 1, 0]);
   const textY = useTransform(scrollYProgress, [0, 0.5], ["0%", "-6%"]);
@@ -124,7 +122,20 @@ function HeroSection(): React.JSX.Element {
     <section ref={containerRef} className="relative h-[200vh]">
       {/* Sticky viewport — stays pinned while scroll consumes the extra 100vh above */}
       <div className="sticky top-0 h-[100svh] overflow-hidden">
-        {/* ── Layer 1 (bottom): colourful gallery — fades in ── */}
+        {/* ── Layer 1 (base): noir — toujours visible, jamais animée ── */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/gallerie/gallerie_noir.png"
+            alt="Gallerie noire Mercedes-Benz × Mondrian"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+
+        {/* ── Layer 2 (top): classique — apparaît par-dessus, aucun trou noir ── */}
         <motion.div
           className="absolute inset-0"
           style={{ opacity: classiqueOpacity }}
@@ -137,23 +148,6 @@ function HeroSection(): React.JSX.Element {
             priority
             sizes="100vw"
           />
-        </motion.div>
-
-        {/* ── Layer 2 (top): dark gallery — fades out ── */}
-        <motion.div
-          className="absolute inset-0"
-          style={{ opacity: noirOpacity }}
-        >
-          <Image
-            src="/images/gallerie/gallerie_noir.png"
-            alt="Gallerie noire Mercedes-Benz × Mondrian"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          {/* Dark overlay to deepen the noir state */}
-          <div className="absolute inset-0 bg-black/50" />
         </motion.div>
 
         {/* ── Layer 3: text content — ancré en haut, galerie visible en bas ── */}
