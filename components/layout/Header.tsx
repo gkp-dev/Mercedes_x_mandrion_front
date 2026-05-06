@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { label: "COLLECTION", href: "#collection" },
   { label: "MANIFESTE", href: "#manifeste" },
   { label: "GALERIE", href: "#galerie" },
+  { label: "ÉVÉNEMENT", href: "/evenement" },
   { label: "CONTACT", href: "#contact" },
 ];
 
@@ -34,15 +35,25 @@ export default function Header() {
 
         {/* Navigation centrale */}
         <nav className="hidden md:flex items-center gap-10" aria-label="Navigation principale">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-xs font-bold uppercase tracking-[0.2em] text-black hover:text-[#E60000] transition-colors duration-200"
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) =>
+            link.href.startsWith("/") ? (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-xs font-bold uppercase tracking-[0.2em] text-black hover:text-[#E60000] transition-colors duration-200"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-xs font-bold uppercase tracking-[0.2em] text-black hover:text-[#E60000] transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            )
+          )}
         </nav>
 
         {/* Indicateur Mondrian — décoration droite */}
