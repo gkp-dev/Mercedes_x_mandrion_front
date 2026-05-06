@@ -104,13 +104,13 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.9 }}
-            className="flex items-center gap-6 mt-4"
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-4"
           >
             <a
               href="#collection"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black text-xs font-black uppercase tracking-[0.2em] border-2 border-white transition-all duration-200 hover:bg-[#E60000] hover:border-[#E60000] hover:text-white"
+              className="inline-flex items-center gap-3 px-6 py-3 sm:px-8 sm:py-4 bg-white text-black text-xs font-black uppercase tracking-[0.2em] border-2 border-white transition-all duration-200 hover:bg-[#E60000] hover:border-[#E60000] hover:text-white"
             >
-              DÉCOUVRIR LA COLLECTION
+              DÉCOUVRIR
               <span aria-hidden="true">→</span>
             </a>
             <a
@@ -127,7 +127,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.1 }}
-          className="flex items-end justify-between"
+          className="hidden md:flex items-end justify-between"
         >
           {/* Specs gauche */}
           <div className="flex items-end gap-12">
