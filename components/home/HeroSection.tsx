@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen overflow-hidden bg-black"
+      className="relative min-h-[100svh] overflow-hidden bg-black"
     >
       {/* ─── Image de fond plein écran ─── */}
       <Image
@@ -56,7 +56,7 @@ export default function HeroSection() {
       </div>
 
       {/* ─── Contenu principal ─── */}
-      <div className="relative z-10 flex flex-col justify-between min-h-screen px-12 lg:px-20 pt-32 pb-16 max-w-screen-2xl mx-auto">
+      <div className="relative z-10 flex flex-col justify-between min-h-[100svh] px-8 lg:px-20 pt-28 pb-12 max-w-screen-2xl mx-auto">
 
         {/* Haut : étiquette série */}
         <motion.div
