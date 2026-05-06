@@ -185,8 +185,7 @@ function HeroSection(): React.JSX.Element {
           {/* Tagline */}
           <p
             className="text-white/70 text-sm md:text-base font-light max-w-lg leading-relaxed"
-            style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
-          >
+                      >
             "Une immersion totale, une expérience multisensorielle qui brouille les frontières entre l'art et l'automobile."
           </p>
 
@@ -231,8 +230,7 @@ function ConceptSection(): React.JSX.Element {
           <blockquote
             className="font-light text-2xl md:text-3xl leading-snug mb-12 text-black"
             style={{
-              fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-            }}
+                          }}
           >
             <em>
               "Un espace épuré, minimaliste, où chaque véhicule est une pièce
@@ -312,8 +310,7 @@ function GrillesSection(): React.JSX.Element {
           <p
             className="text-white/70 text-base md:text-lg font-light leading-relaxed mb-10 max-w-lg"
             style={{
-              fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-            }}
+                          }}
           >
             Une installation où les visiteurs interagissent avec des grilles
             lumineuses inspirées de Mondrian — révélant, en temps réel, la
@@ -482,8 +479,7 @@ function TourneeSection(): React.JSX.Element {
           <p
             className="text-sm text-white/40 italic font-light leading-relaxed"
             style={{
-              fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-            }}
+                          }}
           >
             Programme soumis à évolution. Des pop-ups éphémères seront organisés
             dans des espaces partenaires et institutions culturelles sélectionnées
