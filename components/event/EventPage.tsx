@@ -111,15 +111,15 @@ function HeroSection(): React.JSX.Element {
     offset: ["start start", "end start"],
   });
 
-  // Classique fades IN over noir — noir reste toujours visible en base (pas de trou noir)
-  const classiqueOpacity = useTransform(scrollYProgress, [0.3, 0.7], [0, 1]);
-  // Hero text fades and slides upward before the swap finishes
-  const textOpacity = useTransform(scrollYProgress, [0, 0.2, 0.45], [1, 1, 0]);
-  const textY = useTransform(scrollYProgress, [0, 0.5], ["0%", "-6%"]);
+  // Classique fades IN over noir — transition courte et immédiate
+  const classiqueOpacity = useTransform(scrollYProgress, [0.1, 0.45], [0, 1]);
+  // Hero text fades out avant que la transition commence
+  const textOpacity = useTransform(scrollYProgress, [0, 0.12, 0.3], [1, 1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 0.4], ["0%", "-6%"]);
 
   return (
-    /* Tall container — 200vh creates the "scrollable canvas" for the sticky trick */
-    <section ref={containerRef} className="relative h-[200vh]">
+    /* 150vh — scroll distance réduit pour une transition plus rapide */
+    <section ref={containerRef} className="relative h-[150vh]">
       {/* Sticky viewport — stays pinned while scroll consumes the extra 100vh above */}
       <div className="sticky top-0 h-[100svh] overflow-hidden">
         {/* ── Layer 1 (base): noir — toujours visible, jamais animée ── */}
